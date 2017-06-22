@@ -16,10 +16,10 @@ $ php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 $ php composer-setup.php
 ```
 
-To create your new Zend Framework project:
+To install Zend Framework collections and others Libraries:
 
 ```bash
-$ composer create-project -sdev zendframework/skeleton-application path/to/install
+$ php composer.phar update
 ```
 
 ## View on your web browser
@@ -31,7 +31,7 @@ $ php -S 0.0.0.0:8080 -t public/ public/index.php
 
 OR use the composer alias:
 
-$ composer serve
+$ php composer.phar serve
 ```
 
 
