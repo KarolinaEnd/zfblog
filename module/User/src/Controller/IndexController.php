@@ -25,6 +25,5 @@ class IndexController extends AbstractActionController
         $users = $this->table->fetchAll();
         return new ViewModel();
     }
-    
 
 }
