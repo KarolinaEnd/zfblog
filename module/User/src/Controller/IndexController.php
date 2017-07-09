@@ -26,4 +26,14 @@ class IndexController extends AbstractActionController
         return new ViewModel();
     }
 
+    public function addAction()
+    {
+        $form = new \User\Form\UserForm();
+
+        return new ViewModel([
+            'form' => $form
+        ]);
+
+    }
+
 }
