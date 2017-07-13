@@ -1,4 +1,4 @@
-# ZF Blog Project
+# ZF Simple Blog Project
 
 ## Introduction
 
@@ -21,6 +21,13 @@ To install Zend Framework collections and others Libraries:
 ```bash
 $ php composer.phar update
 ```
+
+## Installation Database
+
+```bash
+get in "data/schema.sql"
+```
+
 
 ## View on your web browser
 
