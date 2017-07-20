@@ -21,4 +21,14 @@ class UserTable
         return $this->tableGateway->select();
     }
 
+    public function saveUser(User $user)
+    {
+        $data = [
+          'name' => $user->getName(),
+          'email' => $user->getEmail()
+        ];
+
+        $this->tableGateway->insert($data);
+    }
+
 }
