@@ -21,6 +21,17 @@ class UserTable
         return $this->tableGateway->select();
     }
 
+    public function getUser(int $id)
+    {
+
+        $current = $this->tableGateway->select([
+            'id' => $id
+        ]);
+
+        return $current->current();
+
+    }
+
     public function saveUser(User $user)
     {
         $data = [
@@ -28,7 +39,19 @@ class UserTable
           'email' => $user->getEmail()
         ];
 
-        $this->tableGateway->insert($data);
+        //For update user
+        if ($user->getId()) {
+
+            $this->tableGateway->update($data, [
+              'id' => $user->getId()
+            ]);
+
+        //For insert new user
+        } else {
+            $this->tableGateway->insert($data);
+        }
+
+
     }
 
 }

@@ -18,6 +18,18 @@ class User
 
     }
 
+    public function getArrayCopy()
+    {
+
+        return [
+            'id'    => $this->id,
+            'name'  => $this->name,
+            'email' => $this->email
+        ];
+
+    }
+
+
     public function getId()
     {
        return $this->id;
