@@ -104,4 +104,11 @@ class IndexController extends AbstractActionController
 
     }
 
+    public function listAction()
+    {
+        return new ViewModel([
+            'users' => $this->table->fetchAll()
+        ]);
+    }
+
 }

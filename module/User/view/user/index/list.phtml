@@ -1,0 +1,41 @@
+<?php
+
+$title = 'All users';
+
+$this->headTitle($title);
+
+?>
+
+<h1><?=$this->escapeHtml($title)?></h1>
+
+<p>
+  <a class="btn btn-success" href="<?php echo $this->url('user', ['action'=>'add'])?>">Add new user</a>
+</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th width="145">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  <?php foreach ($users as $user) :?>
+
+    <tr>
+      <td><?=$this->escapeHtml($user->getId())?></td>
+      <td><?=$this->escapeHtml($user->getName())?></td>
+      <td><?=$this->escapeHtml($user->getEmail())?></td>
+      <td>
+          <a class="btn btn-warning" href="<?php echo $this->url('user', ['action'=>'edit', 'id'=>$user->getId()])?>">Edit</a>
+          <a class="btn btn-danger" href="#">Delete</a>
+      </td>
+    </tr>
+  <?php endforeach ?>
+
+
+  </tbody>
+</table>
