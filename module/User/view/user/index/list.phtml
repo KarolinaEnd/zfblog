@@ -31,7 +31,7 @@ $this->headTitle($title);
       <td><?=$this->escapeHtml($user->getEmail())?></td>
       <td>
           <a class="btn btn-warning" href="<?php echo $this->url('user', ['action'=>'edit', 'id'=>$user->getId()])?>">Edit</a>
-          <a class="btn btn-danger" href="#">Delete</a>
+          <a class="btn btn-danger" href="<?php echo $this->url('user', ['action'=>'delete', 'id'=>$user->getId()])?>">Delete</a>
       </td>
     </tr>
   <?php endforeach ?>

@@ -32,6 +32,15 @@ class UserTable
 
     }
 
+    public function deleteUser(int $id)
+    {
+
+        $this->tableGateway->delete([
+            'id' => $id
+        ]);
+
+    }
+
     public function saveUser(User $user)
     {
         $data = [

@@ -111,4 +111,41 @@ class IndexController extends AbstractActionController
         ]);
     }
 
+    public function deleteAction()
+    {
+
+        $id = (int) $this->params()->fromRoute('id',0);
+
+        if ($id == 0) {
+            exit('invalid id');
+        }
+
+        try {
+            $user = $this->table->getUser($id);
+        } catch(\Exception $e) {
+            exit('Error with User table');
+        }
+
+        $request = $this->getRequest();
+
+        //if not post request
+        if (! $request->isPost()) {
+            return new ViewModel([
+                'user' => $user,
+                'id' => $id
+            ]);
+        }
+
+        //if post request
+        $del = $request->getPost('del', 'No');
+
+        if ($del == 'Yes') {
+            $id = (int) $user->getId();
+            $this->table->deleteUser($id);
+        }
+
+        $this->redirect()->toRoute('user', ['action'=>'list']);
+
+    }
+
 }
