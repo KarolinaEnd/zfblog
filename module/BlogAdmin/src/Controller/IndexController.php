@@ -5,20 +5,17 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Application;
+namespace BlogAdmin\Controller;
 
-use Zend\ModuleManager\ModuleManager;
-use Zend\Mvc\MvcEvent;
-use Zend\EventManager\EventInterface as Event;
+use Zend\Mvc\Controller\AbstractActionController;
+use Zend\View\Model\ViewModel;
 
-class Module
+class IndexController extends AbstractActionController
 {
 
-    const VERSION = '3.0.3-dev';
-
-    public function getConfig()
+    public function indexAction()
     {
-        return include __DIR__ . '/../config/module.config.php';
+        return new ViewModel();
     }
 
 }

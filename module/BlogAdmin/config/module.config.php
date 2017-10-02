@@ -5,7 +5,7 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Login;
+namespace BlogAdmin;
 
 use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
@@ -14,13 +14,23 @@ use Zend\ServiceManager\Factory\InvokableFactory;
 return [
     'router' => [
         'routes' => [
+            'admin' => [
+                'type'    => Segment::class,
+                'options' => [
+                    'route'    => '/admin',
+                    'defaults' => [
+                        'controller' => Controller\IndexController::class,
+                        'action'     => 'index',
+                    ],
+                ],
+            ],
             'login' => [
                 'type'    => Segment::class,
                 'options' => [
                     'route'    => '/login',
                     'defaults' => [
-                        'controller' => Controller\IndexController::class,
-                        'action'     => 'index',
+                        'controller' => Controller\LoginController::class,
+                        'action'     => 'login',
                     ],
                 ],
             ],
@@ -28,7 +38,8 @@ return [
     ],
     'controllers' => [
         'factories' => [
-            //Controller\IndexController::class => InvokableFactory::class,
+            Controller\IndexController::class => InvokableFactory::class,
+            Controller\LoginController::class => InvokableFactory::class,
         ],
     ],
     'view_manager' => [
@@ -38,10 +49,10 @@ return [
         'not_found_template'       => 'error/404',
         'exception_template'       => 'error/index',
         'template_map' => [
-            'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
-            'login/index/index' => __DIR__ . '/../view/login/index/index.phtml',
-            'error/404'               => __DIR__ . '/../view/error/404.phtml',
-            'error/index'             => __DIR__ . '/../view/error/index.phtml',
+            //'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
+            //'blog-admin/index/index' => __DIR__ . '/../view/blog-admin/index/index.phtml',
+            //'error/404'               => __DIR__ . '/../view/error/404.phtml',
+           // 'error/index'             => __DIR__ . '/../view/error/index.phtml',
         ],
         'template_path_stack' => [
             __DIR__ . '/../view',
