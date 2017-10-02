@@ -5,7 +5,7 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Application;
+namespace BlogAdmin;
 
 use Zend\ModuleManager\ModuleManager;
 use Zend\Mvc\MvcEvent;
@@ -15,6 +15,20 @@ class Module
 {
 
     const VERSION = '3.0.3-dev';
+
+    public function init(ModuleManager $manager)
+    {
+        // Get event manager.
+        $eventManager = $manager->getEventManager();
+        $sharedEventManager = $eventManager->getSharedManager();
+        $sharedEventManager->attach(__NAMESPACE__, 'dispatch', [$this, 'onDispatch'], 100);
+
+    }
+
+    public function onDispatch(MvcEvent $event)
+    {
+          $event->getTarget()->layout('template/layout');
+    }
 
     public function getConfig()
     {
