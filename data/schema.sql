@@ -22,16 +22,17 @@ SET time_zone = "+00:00";
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
-  `email` varchar(100) DEFAULT NULL
+  `email` varchar(100) DEFAULT NULL,
+  `password` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `email`) VALUES
-(1, 'Mike Tyson', 'mike@gmail.com'),
-(2, 'John White', 'john@gmail.com');
+INSERT INTO `user` (`id`, `name`, `email`, NULL) VALUES
+(1, 'Mike Tyson', 'mike@gmail.com', NULL),
+(2, 'John White', 'john@gmail.com', NULL);
 
 --
 -- Indexes for dumped tables
